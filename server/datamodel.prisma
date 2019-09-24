@@ -1,0 +1,19 @@
+type User  {
+  id: ID! @id 
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  placeList: [Place!]! @relation(name: "UserToPlace")
+  firstName: String
+  lastName: String	
+}
+
+type Place  {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user: User! @relation(name: "UserToPlace")
+  shortName: String
+  longName: String
+  latitude: Float
+  longitude: Float
+}
